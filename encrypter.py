@@ -40,9 +40,21 @@ elif enode == "CREATING":
     if createverif == "YES":
         for aa in range(1):
             pubkey = randint(10000,99999)
-        print(f"Your lock is: {pubkey}")
         prvkey = (pubkey+100000)*123
-        print(f"Your private key is {prvkey}")
         for ac in range(1):
             regkey = randint(1000,9999)
-        print(f"Your regular key is {regkey}")
+
+        pubkey = str(pubkey)
+        prvkey = str(prvkey)
+        regkey = str(regkey)
+        
+        fileName = 'keys.txt'
+        f = open(fileName, 'w+')
+
+        f.write(pubkey + '\n')
+        f.write(prvkey + '\n')
+        f.write(regkey + '\n') 
+        f.close()
+
+        f = open(fileName, 'r')
+        print(f.read())
